@@ -1,4 +1,4 @@
-import { AdType, ButtonType, PageType, SubscribeSize } from '@/lib/types';
+import { ButtonType, PageType, SubscribeSize } from '@/lib/types';
 import { Fragment, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import {

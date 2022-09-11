@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Reactions } from '../types';
 import { fetcher } from '../fetcher';
@@ -36,6 +36,22 @@ export default function useArticleReactions(slug) {
     setHydrated(true);
   }, []);
 
+  const getReactionsFromLocalStorage = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      return JSON.parse(localStorage.getItem(slug)) || initialReactionState;
+    }
+    return null;
+  }, [slug]);
+
+  const setReactionsToLocalStorage = useCallback(
+    (reactions) => {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(slug, JSON.stringify(reactions));
+      }
+    },
+    [slug]
+  );
+
   // Once the page is hydrated, we have access to localStorage.
   // Also call this effect when localStorage is changed to properly update reaction flags
   useEffect(() => {
@@ -48,7 +64,7 @@ export default function useArticleReactions(slug) {
       setHasClapped(clapped);
       setHasPartied(partied);
     }
-  }, [hydrated, setReactionsToLocalStorage]);
+  }, [getReactionsFromLocalStorage, hydrated, setReactionsToLocalStorage]);
 
   useEffect(() => {
     setReactions(data);
@@ -174,19 +190,6 @@ export default function useArticleReactions(slug) {
     const prevValue = updatedReactionState[reaction];
     updatedReactionState[reaction] = !prevValue;
     setReactionsToLocalStorage(updatedReactionState);
-  }
-
-  function getReactionsFromLocalStorage() {
-    if (typeof window !== 'undefined') {
-      return JSON.parse(localStorage.getItem(slug)) || initialReactionState;
-    }
-    return null;
-  }
-
-  function setReactionsToLocalStorage(reactions) {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem(slug, JSON.stringify(reactions));
-    }
   }
 
   return {
