@@ -48,7 +48,7 @@ export function NavMenu({}) {
         <div className="flex justify-start lg:w-0 lg:flex-1">
           <span className="sr-only">Profile Picture</span>
           <Image
-            alt="Mangir Alexandr"
+            alt="Alexandr Mangir"
             height={48}
             width={48}
             src={siteMetadata.avatarImage}

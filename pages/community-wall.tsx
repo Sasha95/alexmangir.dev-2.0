@@ -19,7 +19,7 @@ export default function CommunityWall({ session, supabase, messages }) {
   }, [session]);
 
   return (
-    <Container title="Community Wall - Mangir Alexandr">
+    <Container title="Community Wall - Alexandr Mangir">
       <h1>
         <span className="block text-base font-semibold tracking-wide text-center text-teal-500 uppercase dark:text-teal-400">
           Leave a note

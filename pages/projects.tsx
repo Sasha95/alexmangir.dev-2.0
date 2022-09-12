@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Projects() {
   return (
-    <Container title="Projects - Mangir Alexandr">
+    <Container title="Projects - Alexandr Mangir">
       <h1>
         <span className="block text-base font-semibold tracking-wide text-center text-teal-500 uppercase dark:text-teal-400">
           Projects

@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Mangir Alexandr – full-stack engineer, writer, creative developer.',
-  author: 'Mangir Alexandr',
-  headerTitle: "Mangir Alexandr's Portfolio",
+  title: 'Alexandr Mangir – full-stack engineer, writer, creative developer.',
+  author: 'Alexandr Mangir',
+  headerTitle: "Alexandr Mangir's Portfolio",
   description:
     "I'm Alexandr. I'm a senior front end developer, blogger and designer. Welcome to my corner of the internet. I'm glad you're here!",
   language: 'en-us',
@@ -11,7 +11,7 @@ const siteMetadata = {
   avatarImage:
     'https://res.cloudinary.com/alexmangir/image/upload/v1662912164/self_wa3t88.jpg',
   socialBanner:
-    'https://res.cloudinary.com/alexmangir/image/upload/v1662922572/default-social-image_vcl9sr.png',
+    'https://res.cloudinary.com/alexmangir/image/upload/v1663012091/default-social-image_n2259u.png',
   email: 'mailto:sasha982025@gmail.com',
   github: 'https://github.com/Sasha95',
   twitter: 'https://twitter.com/css_prime',

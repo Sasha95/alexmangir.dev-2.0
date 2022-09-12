@@ -166,8 +166,8 @@ export function renderBlocks(block) {
             loading="lazy"
             allowFullScreen={true}
           >
-            See the Pen <a href={value.url}>Postage from Bag End</a> by Mangir
-            Alexandr (<a href="https://codepen.io/alexmangir">@alexmangir</a>)
+            See the Pen <a href={value.url}>Postage from Bag End</a> by Alexandr 
+            Mangir (<a href="https://codepen.io/alexmangir">@alexmangir</a>)
             on <a href="https://codepen.io">CodePen</a>.
           </iframe>
         </div>

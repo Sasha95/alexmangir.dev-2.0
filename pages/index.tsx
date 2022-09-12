@@ -26,7 +26,7 @@ export default function Home({ recentArticles }) {
             </h1>
             <div className="order-1 md:order-2">
               <Image
-                alt="Mangir Alexandr"
+                alt="Alexandr Mangir"
                 height={160}
                 width={160}
                 src={siteMetadata.avatarImage}

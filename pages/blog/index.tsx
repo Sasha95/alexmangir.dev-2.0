@@ -30,7 +30,7 @@ export default function Blog({ featuredArticle, articles, tags }) {
   }, [selectedTag]);
 
   return (
-    <Container title="Blog - Mangir Alexandr">
+    <Container title="Blog - Alexandr Mangir">
       <h1>
         <span className="block text-base font-semibold tracking-wide text-center text-teal-500 uppercase dark:text-teal-400">
           My Blog

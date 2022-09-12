@@ -254,7 +254,7 @@ const ArticlePage = ({
 
   return (
     <Container
-      title={`${title} - Mangir Alexandr`}
+      title={`${title} - Alexandr Mangir`}
       description={summary}
       imageUrl={socialImageConf}
       date={new Date(publishedDate).toISOString()}

@@ -131,7 +131,7 @@ export function Container(props) {
         />
         <link rel="canonical" href={meta.canonicalUrl} />
         <meta property="og:type" content={meta.type} />
-        <meta property="og:site_name" content="Mangir Alexandr" />
+        <meta property="og:site_name" content="Alexandr Mangir" />
         <meta property="og:description" content={meta.description} />
         <meta property="og:title" content={meta.title} />
         <meta property="og:image" content={meta.imageUrl} />

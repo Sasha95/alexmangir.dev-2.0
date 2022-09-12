@@ -9,7 +9,7 @@ export async function generateRssFeed() {
   const articles = await convertToArticleList(resp);
 
   const feed = new RSS({
-    title: 'Mangir Alexandr',
+    title: 'Alexandr Mangir',
     site_url: 'https://alexmangir.dev',
     feed_url: 'https://alexmangir.dev/rss.xml'
   });
