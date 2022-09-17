@@ -1,13 +1,13 @@
-import { ButtonType } from '@/lib/types';
 import { convertToArticleList, getPublishedArticles } from '@/lib/notion';
+import { ButtonType } from '@/lib/types';
 
 import { ArticleList } from '@/components/ArticleList';
 import { Button } from '@/components/Button';
+import siteMetadata from '@/data/siteMetadata';
 import { Container } from 'layouts/Container';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import siteMetadata from '@/data/siteMetadata';
 import { useRouter } from 'next/router';
 
 const workExperience = [
@@ -164,9 +164,9 @@ export default function About({ recentArticles }) {
           <Image
             className="rounded-xl group-hover:opacity-75"
             objectFit="cover"
-            src="https://res.cloudinary.com/braydoncoyer/image/upload/v1637186547/toolbox_hardware.jpg"
+            src="https://res.cloudinary.com/alexmangir/image/upload/v1663454567/toolbox_hardware_i7ve1x.jpg"
             placeholder="blur"
-            blurDataURL="https://res.cloudinary.com/braydoncoyer/image/upload/v1637186547/toolbox_hardware.jpg"
+            blurDataURL="https://res.cloudinary.com/alexmangir/image/upload/v1663454567/toolbox_hardware_i7ve1x.jpg"
             width={260}
             height={260}
             layout="responsive"
