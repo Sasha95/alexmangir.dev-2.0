@@ -1,6 +1,6 @@
 ![A preview of my revamped blogfolio](https://res.cloudinary.com/alexmangir/image/upload/v1663012091/default-social-image_n2259u.png)
 
-# braydoncoyer.dev
+# alexmangir.dev
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
