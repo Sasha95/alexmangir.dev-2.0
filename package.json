@@ -17,6 +17,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.0",
     "@notionhq/client": "^2.2.0",
+    "@supabase/supabase-js": "^2.0.0-rc.10",
     "copy-to-clipboard": "^3.3.2",
     "dayjs": "^1.11.5",
     "framer-motion": "^7.3.2",

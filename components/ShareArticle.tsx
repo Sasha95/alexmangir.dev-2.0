@@ -10,10 +10,10 @@ type Props = {
 
 export function ShareArticle({ slug, title }: Props) {
   const [isCopied, handleCopy] = useCopyToClipboard(1500);
-  const pubilcUrl = getArticlePublicUrl(slug);
+  const publicUrl = getArticlePublicUrl(slug);
   return (
     <div className="flex items-center space-x-3 m-0 justify-center">
-      <TwitterShareButton url={pubilcUrl} title={title} via={'css_prime'}>
+      <TwitterShareButton url={publicUrl} title={title} via={'css_prime'}>
         <svg
           className="w-9 h-9 md:w-8 md:h-8 hover:rotate-[-4deg]"
           viewBox="0 0 24 24"
@@ -29,7 +29,7 @@ export function ShareArticle({ slug, title }: Props) {
           ></path>
         </svg>
       </TwitterShareButton>
-      <LinkedinShareButton title={title} url={pubilcUrl}>
+      <LinkedinShareButton title={title} url={publicUrl}>
         <svg
           className="w-9 h-9 md:w-8 md:h-8 hover:rotate-[-4deg]"
           viewBox="0 0 24 24"

@@ -1,7 +1,10 @@
 import useArticleReactions from '@/hooks/useArticleReactions';
 import { useDebounce } from '@/lib/hooks/useDebounce';
 
-const Reactions = ({ slug }) => {
+type Props = {
+  slug: string;
+};
+const Reactions = ({ slug }: Props) => {
   const {
     hasLiked,
     hasLoved,

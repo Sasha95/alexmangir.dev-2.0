@@ -1,9 +1,13 @@
 import { fetcher } from '@/lib/fetcher';
 import { internationalNumberFormat } from '@/lib/formatNumbers';
+import { Subscribers } from '@/lib/types';
 import useSWR from 'swr';
 
 export function NewsletterSubs() {
-  const { data: newsletterSubs } = useSWR<any>('/api/subscribers', fetcher);
+  const { data: newsletterSubs } = useSWR<Subscribers>(
+    '/api/subscribers',
+    fetcher
+  );
 
   return (
     <div className="h-32 justify-center text-center bg-gray-100 dark:bg-midnight rounded-lg p-6 flex flex-col items-center col-span-2">

@@ -1,10 +1,10 @@
-import 'styles/globals.css';
 import 'styles/codeblocks.css';
+import 'styles/globals.css';
 
-import type { AppProps } from 'next/app';
+import { useSupabase } from '@/hooks/useSupabase';
 import PlausibleProvider from 'next-plausible';
 import { ThemeProvider } from 'next-themes';
-import { useSupabase } from '@/hooks/useSupabase';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { session, supabaseClient } = useSupabase();

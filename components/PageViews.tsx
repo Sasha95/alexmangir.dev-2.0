@@ -1,8 +1,12 @@
-import { Views } from '@/lib/types';
 import { fetcher } from '@/lib/fetcher';
+import { Views } from '@/lib/types';
 import useSWR from 'swr';
 
-const PageViews = ({ slug }) => {
+type Props = {
+  slug: string;
+};
+
+const PageViews = ({ slug }: Props) => {
   const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher, {
     refreshInterval: 5000
   });

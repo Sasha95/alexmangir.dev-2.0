@@ -44,7 +44,7 @@ export const getChangelogData = async (databaseId: string) => {
   };
 };
 
-export const getAllArticles = async (databaseId) => {
+export const getAllArticles = async (databaseId: string) => {
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -94,7 +94,7 @@ export const getPublishedArticles = async (databaseId: string) => {
   return response.results;
 };
 
-export const getPageInfo = async (pageId) => {
+export const getPageInfo = async (pageId: string) => {
   const response = await notion.blocks.children.list({
     block_id: pageId
   });
@@ -102,7 +102,7 @@ export const getPageInfo = async (pageId) => {
   return response.results;
 };
 
-export const getSponsoredArticles = async (databaseId) => {
+export const getSponsoredArticles = async (databaseId: string) => {
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -116,9 +116,9 @@ export const getSponsoredArticles = async (databaseId) => {
   return response.results;
 };
 
-export const convertToArticleList = (tableData: any) => {
+export const convertToArticleList = (tableData: any[]) => {
   let tags: string[] = [];
-  const articles = tableData.map((article: any) => {
+  const articles = tableData.map((article) => {
     return {
       title: article.properties.Name.title[0].plain_text,
       tags: article.properties.tags.multi_select.map((tag) => {
@@ -146,7 +146,7 @@ export const convertToArticleList = (tableData: any) => {
   return { articles, tags };
 };
 
-export const getBlocks = async (blockId) => {
+export const getBlocks = async (blockId: string) => {
   const response = await notion.blocks.children.list({
     block_id: blockId
   });

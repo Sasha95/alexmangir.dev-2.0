@@ -28,6 +28,9 @@ export type Subscribers = {
   count: number;
 };
 
+export type PageViewsType = {
+  pageviews?: number;
+};
 export type Views = {
   total: number;
 };
@@ -38,13 +41,18 @@ export enum ButtonType {
   TERTIARY = 'tertiary'
 }
 
+export type TagType = {
+  id: string;
+  name: string;
+};
+
 export type Article = {
   title: string;
-  tags?: string[];
+  tags?: TagType[];
   coverImage: string;
   summary: string;
-  publishedDate?: any;
-  lastUpdatedDate?: any;
+  publishedDate?: Date;
+  lastUpdatedDate?: Date;
 };
 
 export type Reactions = {

@@ -1,4 +1,4 @@
-import { Session, createClient } from '@supabase/supabase-js';
+import { createClient, Session } from '@supabase/supabase-js';
 
 import { useState } from 'react';
 
@@ -8,11 +8,9 @@ const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_CLIENT_KEY;
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
 const useSupabase = () => {
-  const [session, setSession] = useState<Session>(
-    supabaseClient.auth.session()
-  );
+  const [session, setSession] = useState<Session>();
 
-  supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+  supabaseClient.auth.onAuthStateChange((_event, session) => {
     setSession(session);
   });
 

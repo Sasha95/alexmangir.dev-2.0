@@ -1,8 +1,8 @@
-import { Button } from './Button';
-import { ButtonType } from '@/lib/types';
 import siteMetadata from '@/data/siteMetadata';
+import { ButtonType } from '@/lib/types';
+import { Button } from './Button';
 
-export function AuthButon({ supabase }) {
+export function AuthButton({ supabase }) {
   function handleGitHubLogin() {
     supabase.auth.signIn(
       { provider: 'github' },

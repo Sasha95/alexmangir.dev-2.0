@@ -1,12 +1,29 @@
 import { Footer } from '@/components/Footer';
-import Head from 'next/head';
 import { NavMenu } from '@/components/NavMenu';
 import { PageTransition } from '@/components/PageTransition';
-import { PageType } from '@/lib/types';
 import siteMetadata from '@/data/siteMetadata';
+import { Article, PageType } from '@/lib/types';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
-export function Container(props) {
+type Props = {
+  title?: string;
+  children: ReactNode;
+  showCircles?: boolean;
+  description?: string;
+  imageUrl?: string;
+  date?: string;
+  type?: PageType;
+  sponsoredArticle?: boolean;
+  sponsoredUrl?: string;
+  customMeta?: {
+    sponsoredArticle: Article;
+    sponsoredUrl: string;
+  };
+};
+
+export function Container(props: Props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
 
@@ -16,8 +33,8 @@ export function Container(props) {
     imageUrl: siteMetadata.socialBanner,
     type: PageType.WEBSITE,
     twitterHandle: siteMetadata.twitterHandle,
-    canonicalUrl: customMeta.sponsoredArticle
-      ? customMeta.sponsoredUrl
+    canonicalUrl: props.customMeta?.sponsoredArticle
+      ? props.customMeta?.sponsoredUrl
       : `${siteMetadata.siteUrl}${router.asPath}`,
     date: null,
     ...customMeta

@@ -1,10 +1,10 @@
 import { Form, FormState } from '@/lib/types';
 import { useRef, useState } from 'react';
 
-import { AuthButon } from './AuthButton';
+import { useSWRConfig } from 'swr';
+import { AuthButton } from './AuthButton';
 import { ErrorMessage } from './ErrorMessage';
 import { SuccessMessage } from './SuccessMessage';
-import { useSWRConfig } from 'swr';
 
 export function CommunityForm({ loggedIn, supabase, session }) {
   const { mutate } = useSWRConfig();
@@ -85,7 +85,7 @@ export function CommunityForm({ loggedIn, supabase, session }) {
             ) : null}
           </div>
         ) : (
-          <AuthButon supabase={supabase} />
+          <AuthButton supabase={supabase} />
         )}
       </div>
     </>

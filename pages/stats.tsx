@@ -1,19 +1,20 @@
 import { ClapCount } from '@/components/stats/ClapCount';
-import { Container } from 'layouts/Container';
 import { LikeCount } from '@/components/stats/LikeCount';
 import { LoveCount } from '@/components/stats/LoveCount';
 import { NewsletterSubs } from '@/components/stats/Newslettersubs';
-import { Pageviews } from '@/components/stats/Pageviews';
+import { PageViews } from '@/components/stats/Pageviews';
 import { PartyCount } from '@/components/stats/PartyCount';
 import { SponsoredArticles } from '@/components/stats/SponsoredArticles';
 import { TotalArticles } from '@/components/stats/TotalArticles';
 import { TotalReactions } from '@/components/stats/TotalReactions';
 import { Visitors } from '@/components/stats/Visitors';
 import { fetcher } from '@/lib/fetcher';
+import { Reactions } from '@/lib/types';
+import { Container } from 'layouts/Container';
 import useSWR from 'swr';
 
 export default function Stats() {
-  const { data: totalReactions } = useSWR<any>(
+  const { data: totalReactions } = useSWR<Reactions>(
     '/api/statistics/total-reactions',
     fetcher
   );
@@ -38,7 +39,7 @@ export default function Stats() {
           </h2>
         </div>
         <Visitors />
-        <Pageviews />
+        <PageViews />
         <NewsletterSubs />
       </div>
 
@@ -53,10 +54,10 @@ export default function Stats() {
         </div>
         <TotalArticles />
         <SponsoredArticles />
-        <LikeCount likeCount={totalReactions?.likeCount} />
-        <LoveCount loveCount={totalReactions?.loveCount} />
-        <ClapCount clapCount={totalReactions?.clapCount} />
-        <PartyCount partyCount={totalReactions?.partyCount} />
+        <LikeCount likeCount={totalReactions?.like_count} />
+        <LoveCount loveCount={totalReactions?.love_count} />
+        <ClapCount clapCount={totalReactions?.clap_count} />
+        <PartyCount partyCount={totalReactions?.party_count} />
         <TotalReactions />
       </div>
     </Container>

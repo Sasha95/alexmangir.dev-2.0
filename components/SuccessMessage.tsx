@@ -1,4 +1,10 @@
-export function SuccessMessage({ children }) {
+import { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+};
+
+export function SuccessMessage({ children }: Props) {
   return (
     <p className="flex items-center text-sm font-bold text-green-700 dark:text-green-400">
       <svg

@@ -1,1 +1,1 @@
-export let internationalNumberFormat = new Intl.NumberFormat('en-US');
+export const internationalNumberFormat = new Intl.NumberFormat('en-US');

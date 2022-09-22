@@ -1,23 +1,29 @@
-import { SubscribeSize } from '@/lib/types';
 import { convertToArticleList, getAllArticles } from '@/lib/notion';
+import { Article, SubscribeSize } from '@/lib/types';
 import { useEffect, useState } from 'react';
 
 import { ArticleList } from '@/components/ArticleList';
+import { Subscribe } from '@/components/Subscribe';
+import { Tag } from '@/components/Tag';
+import siteMetadata from '@/data/siteMetadata';
+import { handleArticleClicked } from '@/lib/handleArticleClick';
 import { Container } from 'layouts/Container';
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { Subscribe } from '@/components/Subscribe';
-import { Tag } from '@/components/Tag';
-import { handleArticleClicked } from '@/lib/handleArticleClick';
-import siteMetadata from '@/data/siteMetadata';
 import slugify from 'slugify';
 
-export default function Blog({ featuredArticle, articles, tags }) {
+type Props = {
+  featuredArticle: Article;
+  articles: Article[];
+  tags: string[];
+};
+
+export default function Blog({ featuredArticle, articles, tags }: Props) {
   const [selectedTag, setSelectedTag] = useState<string>('');
   const [searchValue, setSearchValue] = useState('');
 
   const filteredArticles = articles
-    .sort((a, b) => Number(new Date(b.publishedDate)))
+    .sort((_, b) => Number(new Date(b.publishedDate)))
     .filter((post) => {
       return (
         post.title.toLowerCase().includes(searchValue.toLowerCase()) ||

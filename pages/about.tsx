@@ -1,5 +1,5 @@
 import { convertToArticleList, getPublishedArticles } from '@/lib/notion';
-import { ButtonType } from '@/lib/types';
+import { Article, ButtonType } from '@/lib/types';
 
 import { ArticleList } from '@/components/ArticleList';
 import { Button } from '@/components/Button';
@@ -33,7 +33,11 @@ const workExperience = [
   }
 ];
 
-export default function About({ recentArticles }) {
+type Props = {
+  recentArticles: Article[];
+};
+
+export default function About({ recentArticles }: Props) {
   const { push } = useRouter();
   return (
     <Container title="About Me - Alexandr Mangir">
