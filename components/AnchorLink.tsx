@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 
 import { formatHashLink } from '@/lib/formatHashLink';
+import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
 type Props = {
   children: JSX.Element;
-  text: string;
+  richTextBlock: RichTextItemResponse[];
 };
 
-export function AnchorLink({ children, text }: Props) {
+export function AnchorLink({ children, richTextBlock }: Props) {
   const [hashLink, setHashLink] = useState<string>();
-
+  const text =
+    richTextBlock[0].type === 'text' && richTextBlock[0].text.content;
   useEffect(() => {
     setHashLink(formatHashLink(text));
   }, [text]);

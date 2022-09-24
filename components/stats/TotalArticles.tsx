@@ -2,7 +2,7 @@ import { fetcher } from '@/lib/fetcher';
 import useSWR from 'swr';
 
 export function TotalArticles() {
-  const { data: totalArticles } = useSWR<any>(
+  const { data: totalArticles } = useSWR<{ totalArticles: number }>(
     '/api/statistics/total-articles',
     fetcher
   );

@@ -1,22 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { baseFetch } from '../baseFetch';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const result = await fetch(
-    `https://plausible.io/api/v1/stats/realtime/visitors?site_id=alexmangir.dev`,
-    {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${process.env.PLAUSIBLE_API_TOKEN}`
-      }
-    }
+  const response = await baseFetch(
+    'https://plausible.io/api/v1/stats/realtime/visitors?site_id=alexmangir.dev',
+    {},
+    'GET',
+    `Bearer ${process.env.PLAUSIBLE_API_TOKEN}`
   );
 
-  const data = await result.json();
-
-  if (!result.ok) {
+  if (!response.ok) {
     return res
       .status(500)
       .json({ error: 'Error retrieving realtime visitors' });
@@ -27,5 +23,5 @@ export default async function handler(
     'public, s-maxage=60, stale-while-revalidate=60'
   );
 
-  return res.status(200).json({ visitors: data });
+  return res.status(200).json({ visitors: response.result });
 }

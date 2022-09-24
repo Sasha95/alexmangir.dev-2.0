@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 
+import siteMetadata from '@/data/siteMetadata';
 import { Dialog } from '@headlessui/react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import siteMetadata from '@/data/siteMetadata';
 import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
 
-function NavItem({ href, text }) {
+type Props = {
+  href: string;
+  text: string;
+};
+
+function NavItem({ href, text }: Props) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
@@ -34,7 +39,7 @@ function NavItem({ href, text }) {
   );
 }
 
-export function NavMenu({}) {
+export function NavMenu() {
   const [mounted, setMounted] = useState(false);
   let [isOpen, setIsOpen] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();

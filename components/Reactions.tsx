@@ -1,5 +1,6 @@
 import useArticleReactions from '@/hooks/useArticleReactions';
 import { useDebounce } from '@/lib/hooks/useDebounce';
+import { ReactNode } from 'react';
 
 type Props = {
   slug: string;
@@ -68,7 +69,19 @@ const Reactions = ({ slug }: Props) => {
 
 export default Reactions;
 
-function ReactionCard({ isActive, incrementCB, decrementCB, children }) {
+type ReactionCardProps = {
+  isActive: boolean;
+  incrementCB: () => void;
+  decrementCB: () => void;
+  children: ReactNode;
+};
+
+function ReactionCard({
+  isActive,
+  incrementCB,
+  decrementCB,
+  children
+}: ReactionCardProps) {
   const handleClick = useDebounce(
     isActive ? () => decrementCB() : () => incrementCB(),
     300

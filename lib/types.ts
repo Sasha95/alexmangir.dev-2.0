@@ -28,11 +28,18 @@ export type Subscribers = {
   count: number;
 };
 
-export type PageViewsType = {
-  pageviews?: number;
-};
 export type Views = {
   total: number;
+};
+
+export type Message = {
+  id: number;
+  created_at: number;
+  user_id: string;
+  content: any;
+  user: {
+    name: string;
+  };
 };
 
 export enum ButtonType {
@@ -48,11 +55,11 @@ export type TagType = {
 
 export type Article = {
   title: string;
-  tags?: TagType[];
+  tags: TagType[];
   coverImage: string;
   summary: string;
   publishedDate?: Date;
-  lastUpdatedDate?: Date;
+  isPublic: boolean;
 };
 
 export type Reactions = {

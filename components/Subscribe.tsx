@@ -1,12 +1,21 @@
-import { Form, SubscribeSize, Subscribers } from '@/lib/types';
+import { Form, FormState, Subscribers, SubscribeSize } from '@/lib/types';
 
+import siteMetadata from '@/data/siteMetadata';
+import { fetcher } from '@/lib/fetcher';
+import { useSubscribeToNewsletter } from '@/lib/hooks/useSubscribeToNewsletter';
+import { Ref, SyntheticEvent } from 'react';
+import useSWR from 'swr';
 import { ErrorMessage } from './ErrorMessage';
 import { LoadingSpinner } from './LoadingSpinner';
 import { SuccessMessage } from './SuccessMessage';
-import { fetcher } from '@/lib/fetcher';
-import siteMetadata from '@/data/siteMetadata';
-import useSWR from 'swr';
-import { useSubscribeToNewsletter } from '@/lib/hooks/useSubscribeToNewsletter';
+
+type SubscribeCardProps = {
+  handleSubscribe: (e: SyntheticEvent<HTMLFormElement>) => void;
+  form: FormState;
+  inputRef: Ref<HTMLInputElement>;
+  subscriberCount: Number;
+  issuesCount: Number;
+};
 
 function SubscribeCard({
   handleSubscribe,
@@ -14,7 +23,7 @@ function SubscribeCard({
   inputRef,
   subscriberCount,
   issuesCount
-}) {
+}: SubscribeCardProps) {
   return (
     <div className="border border-gray-200 rounded-lg p-6 my-4 w-full dark:border-gray-700 bg-[#F8FAFC] dark:bg-midnight">
       <h3 className="flex items-center mt-2 font-bold text-gray-900 md:text-2xl dark:text-gray-100">
@@ -93,7 +102,17 @@ function SubscribeCard({
   );
 }
 
-function InlineSubscribe({ handleSubscribe, form, inputRef }) {
+type InlineSubscribeProps = {
+  handleSubscribe: (e: SyntheticEvent<HTMLFormElement>) => void;
+  form: FormState;
+  inputRef: Ref<HTMLInputElement>;
+};
+
+function InlineSubscribe({
+  handleSubscribe,
+  form,
+  inputRef
+}: InlineSubscribeProps) {
   return (
     <div>
       <h3 className="my-0 text-sm font-semibold tracking-wider uppercase">

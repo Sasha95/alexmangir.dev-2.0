@@ -1,4 +1,10 @@
-export function ErrorMessage({ children }) {
+import { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+};
+
+export function ErrorMessage({ children }: Props) {
   return (
     <p className="flex items-center text-sm font-bold text-red-800 dark:text-red-400">
       <svg

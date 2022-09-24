@@ -1,7 +1,13 @@
+import { Session } from '@supabase/supabase-js';
 import dayjs from 'dayjs';
 import { useSWRConfig } from 'swr';
 
-export function CommunityEntry({ session, message }) {
+type Props = {
+  session: Session;
+  message: any;
+};
+
+export function CommunityEntry({ session, message }: Props) {
   const { mutate } = useSWRConfig();
 
   async function handleDeleteMessage() {

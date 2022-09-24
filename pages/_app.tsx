@@ -8,6 +8,7 @@ import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { session, supabaseClient } = useSupabase();
+  console.log('session, supabaseClient', session, supabaseClient);
   return (
     <PlausibleProvider domain="alexmangir.dev" trackOutboundLinks={true}>
       <ThemeProvider attribute="class">

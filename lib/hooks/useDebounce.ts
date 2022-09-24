@@ -1,6 +1,6 @@
-import React, { Ref, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export const useDebounce = (callback, delay) => {
+export const useDebounce = (callback: () => void, delay: Number) => {
   const latestCallback = useRef(null);
   const [lastCalledAt, setLastCalledAt] = useState(null);
 

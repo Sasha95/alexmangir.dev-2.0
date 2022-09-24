@@ -17,11 +17,11 @@ const variants = {
   }
 };
 
-export const PageTransition = ({
-  children
-}: {
+type Props = {
   children: ReactNode;
-}): JSX.Element => {
+};
+
+export const PageTransition = ({ children }: Props) => {
   const prefersReducedMotion = useReducedMotion();
 
   if (prefersReducedMotion) return <>{children}</>;

@@ -36,7 +36,9 @@ export default function useArticleReactions(slug: string) {
     setHydrated(true);
   }, []);
 
-  const getReactionsFromLocalStorage = useCallback(() => {
+  const getReactionsFromLocalStorage = useCallback(():
+    | typeof initialReactionState
+    | null => {
     if (typeof window !== 'undefined') {
       return JSON.parse(localStorage.getItem(slug)) || initialReactionState;
     }
@@ -44,7 +46,7 @@ export default function useArticleReactions(slug: string) {
   }, [slug]);
 
   const setReactionsToLocalStorage = useCallback(
-    (reactions: Reactions[]) => {
+    (reactions: typeof initialReactionState) => {
       if (typeof window !== 'undefined') {
         localStorage.setItem(slug, JSON.stringify(reactions));
       }
@@ -184,7 +186,7 @@ export default function useArticleReactions(slug: string) {
 
   // === HELPER FUNCTIONS ===
 
-  function updateReactions(reaction) {
+  function updateReactions(reaction: keyof typeof initialReactionState) {
     const currentReactions = getReactionsFromLocalStorage();
     let updatedReactionState = { ...currentReactions };
     const prevValue = updatedReactionState[reaction];

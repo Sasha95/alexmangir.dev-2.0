@@ -1,3 +1,24 @@
+type Props = {
+  title: string;
+  cloudName: string;
+  imagePublicID: string;
+  cloudinaryUrlBase?: string;
+  version?: string | null;
+  titleFont?: string;
+  titleExtraConfig?: string;
+  underlayImageWidth?: Number;
+  underlayImageHeight?: Number;
+  underlayImage: string;
+  imageWidth?: Number;
+  imageHeight?: Number;
+  textAreaWidth?: Number;
+  textAreaHeight?: Number;
+  textLeftOffset?: Number;
+  textBottomOffset?: Number;
+  textColor?: string;
+  titleFontSize?: Number;
+};
+
 export default function generateSocialImage({
   title,
   cloudName,
@@ -17,7 +38,7 @@ export default function generateSocialImage({
   textBottomOffset = -40,
   textColor = 'FFFFFF',
   titleFontSize = 60
-}): string {
+}: Props) {
   // configure social media image dimensions, quality, and format
   const imageConfig = [
     `w_${imageWidth}`,

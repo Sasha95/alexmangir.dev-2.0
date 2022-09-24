@@ -1,9 +1,11 @@
+import { baseFetch } from 'pages/api/baseFetch';
 import { SocialFollowers } from './types';
 
-export async function getGitHubFollowers(): Promise<SocialFollowers> {
-  const userResponse = await fetch('https://api.github.com/users/Sasha95');
+export async function getGitHubFollowers() {
+  const user = await baseFetch<{}, SocialFollowers>(
+    'https://api.github.com/users/Sasha95',
+    {}
+  );
 
-  const user = await userResponse.json();
-
-  return { followers: user.followers };
+  return { followers: user.result.followers };
 }

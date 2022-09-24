@@ -1,4 +1,5 @@
 import { Form, FormState } from '@/lib/types';
+import { Session, SupabaseClient } from '@supabase/supabase-js';
 import { useRef, useState } from 'react';
 
 import { useSWRConfig } from 'swr';
@@ -6,7 +7,13 @@ import { AuthButton } from './AuthButton';
 import { ErrorMessage } from './ErrorMessage';
 import { SuccessMessage } from './SuccessMessage';
 
-export function CommunityForm({ loggedIn, supabase, session }) {
+type Props = {
+  loggedIn: boolean;
+  supabase: SupabaseClient;
+  session: Session;
+};
+
+export function CommunityForm({ loggedIn, supabase, session }: Props) {
   const { mutate } = useSWRConfig();
   const message = useRef<HTMLInputElement>();
   const [form, setForm] = useState<FormState>({ state: Form.Initial });

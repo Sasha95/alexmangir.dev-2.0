@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 type Props = {
   buttonType: ButtonType;
-  onButtonClick: Function;
+  onButtonClick: () => void;
   children: ReactNode;
 };
 
@@ -19,7 +19,7 @@ export const Button = ({ buttonType, onButtonClick, children }: Props) => {
           ? 'bg-gray-200 dark:bg-midnight text-midnight dark:text-white'
           : null
       } items-center justify-center general-ring-state font-medium`}
-      onClick={() => onButtonClick()}
+      onClick={onButtonClick}
     >
       {children}
     </button>

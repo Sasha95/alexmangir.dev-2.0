@@ -1,4 +1,3 @@
-import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import {
   motion,
   useReducedMotion,
@@ -6,6 +5,7 @@ import {
   useTransform,
   useViewportScroll
 } from 'framer-motion';
+import { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 
 type ParallaxProps = {
   children: ReactNode;
@@ -19,7 +19,7 @@ export const Parallax = ({
   offset = 50,
   clampInitial,
   clampFinal
-}: ParallaxProps): JSX.Element => {
+}: ParallaxProps) => {
   const prefersReducedMotion = useReducedMotion();
   const [elementTop, setElementTop] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);

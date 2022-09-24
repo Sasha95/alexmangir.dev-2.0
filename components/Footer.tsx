@@ -1,7 +1,8 @@
-import Link from 'next/link';
-import { Subscribe } from './Subscribe';
-import { SubscribeSize } from '@/lib/types';
 import siteMetadata from '@/data/siteMetadata';
+import { SubscribeSize } from '@/lib/types';
+import Link from 'next/link';
+import { SVGProps } from 'react';
+import { Subscribe } from './Subscribe';
 
 const navigation = {
   general: [
@@ -25,7 +26,7 @@ const navigation = {
     {
       name: 'Twitter',
       href: siteMetadata.twitter,
-      icon: (props) => (
+      icon: (_: SVGProps<object>) => (
         <svg
           className="w-7 h-7 transform hover:rotate-[-4deg] transition"
           viewBox="0 0 24 24"
@@ -45,7 +46,7 @@ const navigation = {
     {
       name: 'LinkedIn',
       href: siteMetadata.linkedin,
-      icon: (props) => (
+      icon: (_: SVGProps<object>) => (
         <svg
           className="w-7 h-7 transform hover:rotate-[-4deg] transition"
           viewBox="0 0 24 24"
@@ -93,7 +94,7 @@ const navigation = {
     {
       name: 'GitHub',
       href: siteMetadata.github,
-      icon: (props) => (
+      icon: (_: SVGProps<object>) => (
         <svg
           className="w-7 h-7 transform hover:rotate-[-4deg] transition"
           viewBox="0 0 24 24"
@@ -113,7 +114,7 @@ const navigation = {
     {
       name: 'CodePen',
       href: siteMetadata.codepen,
-      icon: (props) => (
+      icon: (_: SVGProps<object>) => (
         <svg
           stroke="currentColor"
           fill="currentColor"

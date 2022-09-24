@@ -1,10 +1,9 @@
 import { fetcher } from '@/lib/fetcher';
 import { internationalNumberFormat } from '@/lib/formatNumbers';
-import { PageViewsType } from '@/lib/types';
 import useSWR from 'swr';
 
 export function PageViews() {
-  const { data: totalPageViews } = useSWR<PageViewsType>(
+  const { data: totalPageViews } = useSWR<{ pageviews: number }>(
     '/api/statistics/total-pageviews',
     fetcher
   );

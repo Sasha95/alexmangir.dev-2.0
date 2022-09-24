@@ -2,7 +2,7 @@ import { fetcher } from '@/lib/fetcher';
 import useSWR from 'swr';
 
 export function SponsoredArticles() {
-  const { data: totalSponsored } = useSWR<any>(
+  const { data: totalSponsored } = useSWR<{ totalSponsored: number }>(
     '/api/statistics/total-sponsored-articles',
     fetcher
   );

@@ -75,7 +75,7 @@ export function ShareArticle({ slug, title }: Props) {
       </LinkedinShareButton>
       <button
         className={`group ${isCopied ? 'text-teal-500' : ''}`}
-        onClick={() => handleCopy()}
+        onClick={handleCopy}
       >
         <span className="sr-only">Copy code</span>
         <svg

@@ -1,12 +1,17 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
-import { Container } from 'layouts/Container';
-import { GetStaticProps } from 'next';
-import { StickyColumn } from 'layouts/StickyColumn';
 import { getPageInfo } from '@/lib/notion';
 import { renderBlocks } from '@/lib/renderBlocks';
+import { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import { Container } from 'layouts/Container';
+import { StickyColumn } from 'layouts/StickyColumn';
+import { GetStaticProps } from 'next';
 
-export default function Toolbox({ toolboxContent }) {
+type Props = {
+  toolboxContent: BlockObjectResponse[];
+};
+
+export default function Toolbox({ toolboxContent }: Props) {
   return (
     <Container>
       <h1>

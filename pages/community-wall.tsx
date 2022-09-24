@@ -2,13 +2,21 @@ import { useEffect, useState } from 'react';
 
 import { CommunityEntry } from '@/components/CommunityEntry';
 import { CommunityForm } from '@/components/CommunityForm';
-import { Container } from 'layouts/Container';
-import { GetStaticProps } from 'next';
 import { fetcher } from '@/lib/fetcher';
 import { supabaseClient } from '@/lib/hooks/useSupabase';
+import { Message } from '@/lib/types';
+import { Session, SupabaseClient } from '@supabase/supabase-js';
+import { Container } from 'layouts/Container';
+import { GetStaticProps } from 'next';
 import useSWR from 'swr';
 
-export default function CommunityWall({ session, supabase, messages }) {
+type Props = {
+  session: Session;
+  supabase: SupabaseClient;
+  messages: any;
+};
+
+export default function CommunityWall({ session, supabase, messages }: Props) {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const { data: entries } = useSWR('/api/community-wall', fetcher, {
     fallbackData: messages
@@ -49,15 +57,10 @@ export default function CommunityWall({ session, supabase, messages }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  let { data: messages, error } = await supabaseClient.from('message').select(`
-        content,
-        id,
-        created_at,
-        user_id,
-        user (
-            name
-        )
-    `);
+  let { data: messages, error } = await supabaseClient
+    .from('message')
+    .select<string, Message>('*');
+  console.log('messages, error', messages, error);
 
   return {
     props: {

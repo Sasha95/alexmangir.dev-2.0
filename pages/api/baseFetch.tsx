@@ -1,20 +1,20 @@
 export type IHttpMethods = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-interface IResponse<R> {
+type Response<R> = {
   result: R | null;
   status: number;
   error: Error | null;
   message: string | null;
   ok: boolean;
-}
+};
 
 export const baseFetch = async <P, R>(
   url: string,
   params: P,
   method: IHttpMethods = 'GET',
-  token: string,
+  token?: string,
   headers: { [key: string]: string } = {}
-): Promise<IResponse<R>> => {
+): Promise<Response<R>> => {
   try {
     const bodyObj = method !== 'GET' ? { body: JSON.stringify(params) } : {};
     const headerToken = token && { Authorization: token };
